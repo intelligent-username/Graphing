@@ -26,7 +26,7 @@ plt.ylabel("Fibonacci Value")
 plt.title(f"Fibonacci's first {VR} numbers")
 plt.grid(True)
 plt.xticks(range(0, VR, max(1, VR//10)))
-# plt.savefig(fr'/Graphs/Fibonacci/first_{VR}.pdf') some glitch with savefig, fix later or nto depending on if I need it
+# plt.savefig(fr'/Graphs/Fibonacci/first_{VR}.pdf') some glitch with savefig, fix later or nto depending on if I need it (Not that 'Graphs' folder doesn't exist)
 print("Note: usage is \npython Fibo.py [num_values]\n where num_values is 20 by default")
 
 plt.show()
