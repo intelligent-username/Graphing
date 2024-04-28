@@ -15,27 +15,27 @@ def getMid(p1,p2):
     return ( (p1[0]+p2[0]) / 2, (p1[1] + p2[1]) / 2)
 
 def sierpinski(points,degree,myTurtle):
-    colormap = ['#000', '#fff', '#000', '#fff', '#000', '#fff', '#000', '#fff', '#000']    
+    colormap = ['#000', '#fff', '#E3F4D3', '#ABC321', '#FF1111', '#FF1111', '#11FF22', '#3F2HG4']    
     drawTriangle(points,colormap[degree],myTurtle)
     if degree > 0:
         sierpinski([points[0],
-                        getMid(points[0], points[1]),
-                        getMid(points[0], points[2])],
+                        getMid(points[0], points[2]),
+                        getMid(points[0], points[1])],
                    degree-1, myTurtle)
         sierpinski([points[1],
                         getMid(points[0], points[1]),
                         getMid(points[1], points[2])],
                    degree-1, myTurtle)
         sierpinski([points[2],
-                        getMid(points[2], points[1]),
-                        getMid(points[0], points[2])],
+                        getMid(points[0], points[2]),
+                        getMid(points[2], points[1])],
                    degree-1, myTurtle)
 
 def main():
    myTurtle = turtle.Turtle()
    myWin = turtle.Screen()
    myPoints = [[-400,-200],[0,400],[400,-200]]
-   sierpinski(myPoints,3,myTurtle)
+   sierpinski(myPoints,5,myTurtle)
    myWin.exitonclick()
 
 main()

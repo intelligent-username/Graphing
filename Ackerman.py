@@ -22,23 +22,23 @@ m_values = range(0, 4)  # Be very careful with larger values due to computationa
 n_values = range(0, 11)  # Adjust based on computational resources
 
 # Plot setup
-fig, ax = plt.subplots()
+fig, ax = plt.subplots(figsize=(12, 8))
 
 # Plotting Ackermann values for different m
-for m in m_values:
+line_styles = ['-', '--', ':', '-.']
+for i, m in enumerate(m_values):
     ack_values = [ackermann(m, n) for n in n_values if ackermann(m, n) < 2**16]  # Limit values for visibility
-    ax.plot(n_values[:len(ack_values)], ack_values, label=f'Ackermann m={m}', marker='o')
+    ax.plot(n_values[:len(ack_values)], ack_values, label=f'Ackermann m={m}', linestyle=line_styles[i], linewidth=2)
 
 # Adding Fibonacci sequence curve
 fib_values = [fibonacci(n) for n in n_values]
-ax.plot(n_values, fib_values, label='Fibonacci', linestyle='--', color='k')
+ax.plot(n_values, fib_values, label='Fibonacci', linestyle='--', color='k', linewidth=2)
 
 # Additional plot settings
 ax.set_xlabel('n')
 ax.set_ylabel('Function Values')
 ax.set_yscale('log')  # Logarithmic scale due to differing growth rates
 ax.legend()
-plt.title('Ackermann Function vs. Fibonacci Sequence')
-plt.grid(True)
-
+ax.set_title('Ackermann Function vs. Fibonacci Sequence', fontsize=16)
+ax.grid(True, linestyle='--', alpha=0.5)
 plt.show()
